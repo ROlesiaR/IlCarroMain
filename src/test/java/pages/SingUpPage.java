@@ -1,7 +1,10 @@
 package pages;
 
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.pagefactory.AjaxElementLocatorFactory;
 
 public class SingUpPage extends BasePage{
 @FindBy (xpath = "//input[@id='name']")
@@ -16,7 +19,11 @@ public class SingUpPage extends BasePage{
     WebElement termsOfUseCheckBox ;
 @FindBy (xpath = "//button[@type='submit']")
     WebElement buttonYalla;
+    public SingUpPage(WebDriver driver){
+        setDriver(driver);
+        PageFactory.initElements(new AjaxElementLocatorFactory(driver,20),this);
 
+    }
 
 }
 
